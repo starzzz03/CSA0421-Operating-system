@@ -1,7 +1,7 @@
 # CSA04 – Operating Systems Assignment 1
 
 **Title:** Evaluate and Justify the Operating-System Design of a Smart Hospital  
-**Student name:** [Enter your name]  
+**Student name:** [Ajay Rajar S]  
 **Register number:** [Enter your register number]  
 **Submission date:** 02/11/2026  
 **GitHub repository name:** `CSA04--Assignment1`
