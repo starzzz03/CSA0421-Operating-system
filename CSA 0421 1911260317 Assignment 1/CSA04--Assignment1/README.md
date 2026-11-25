@@ -2,9 +2,9 @@
 
 **Title:** Evaluate and Justify the Operating-System Design of a Smart Hospital  
 **Student name:** [Ajay Rajar S]  
-**Register number:** [Enter your register number]  
+**Register number:** [1911260317]  
 **Submission date:** 02/11/2026  
-**GitHub repository name:** `CSA04--Assignment1`
+**GitHub repository name:** `https://github.com/starzzz03/CSA0421-Operating-system/tree/main/CSA%200421%201911260317%20Assignment%201/CSA04--Assignment1`
 
 ## Contents
 
