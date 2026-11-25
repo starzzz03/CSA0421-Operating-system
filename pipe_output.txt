@@ -1,5 +1,0 @@
-$ ./pipe_ipc
-analyser: 6 readings, average 35.5, max 41
-reader: done
-
-(exit=0)
