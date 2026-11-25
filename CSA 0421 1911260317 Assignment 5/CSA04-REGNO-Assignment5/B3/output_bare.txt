@@ -1,0 +1,10 @@
+Start-up time to first successful /health: .361312824 s
+Resident memory (RSS) of the app: VmRSS:	   31352 kB
+Disk used by app files: 4 KB (+ shared Python/Flask packages: 1 MB for flask alone)
+--- / with 4 client threads, 5 s:
+requests=6029 errors=0 rps=1205 mean_ms=3.32 p99_ms=6.10
+--- / with 16 client threads, 5 s:
+requests=7183 errors=0 rps=1433 mean_ms=11.15 p99_ms=22.22
+--- /health, 16 threads:
+requests=7914 errors=0 rps=1579 mean_ms=10.12 p99_ms=16.52
+Peak RSS after load: VmHWM:	   32332 kB

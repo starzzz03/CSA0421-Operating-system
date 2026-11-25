@@ -1,0 +1,10 @@
+# Second service next to the portal (a stand-in LMS, nginx), each with its own limits
+services:
+  portal:
+    image: result-portal
+    ports: ["8000:8000"]
+    deploy: {resources: {limits: {cpus: "0.50", memory: 256M}}}
+  lms:
+    image: nginx:alpine
+    ports: ["8080:80"]
+    deploy: {resources: {limits: {cpus: "1.0", memory: 512M}}}

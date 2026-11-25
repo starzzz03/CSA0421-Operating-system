@@ -1,0 +1,11 @@
+# Alternative: full Ubuntu base (for the size/security comparison)
+FROM ubuntu:24.04
+RUN apt-get update && apt-get install -y python3 python3-pip && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY requirements.txt .
+RUN pip3 install --break-system-packages --no-cache-dir -r requirements.txt
+COPY . .
+RUN useradd -m portal && chown -R portal /app
+USER portal
+EXPOSE 8000
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app:app"]

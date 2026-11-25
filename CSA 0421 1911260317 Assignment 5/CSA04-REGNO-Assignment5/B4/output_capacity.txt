@@ -1,0 +1,7 @@
+Total requests 1,200,000; average 167 req/s; planning peak 500 req/s
+hello-page cost as measured                  :    422 req/s per 0.5-CPU container ->   2 containers (0.5 CPU requested, 512 MiB requested)
+5x heavier (templating + cached DB read)     :     84 req/s per 0.5-CPU container ->   6 containers (1.5 CPU requested, 1536 MiB requested)
+20x heavier (real DB query per request)      :     21 req/s per 0.5-CPU container ->  24 containers (6.0 CPU requested, 6144 MiB requested)
+  2 containers = 1 VM(s) of 8 vCPU; result day (4 h incl. ramp) $1.60; always-on year $3,504
+  8 containers = 1 VM(s) of 8 vCPU; result day (4 h incl. ramp) $1.60; always-on year $3,504
+ 30 containers = 2 VM(s) of 8 vCPU; result day (4 h incl. ramp) $3.20; always-on year $7,008

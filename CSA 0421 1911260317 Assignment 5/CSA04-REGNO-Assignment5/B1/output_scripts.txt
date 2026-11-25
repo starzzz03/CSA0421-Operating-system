@@ -1,0 +1,12 @@
+Requests per status code:
+200 4
+302 1
+403 1
+404 1
+Busiest client:
+10.0.0.5 4
+Total bytes sent: 43200
+
+OK: all file systems below 80%
+(threshold 5% to show an alert:)
+ALERT: /dev/vda is 40% full (mounted on /)
