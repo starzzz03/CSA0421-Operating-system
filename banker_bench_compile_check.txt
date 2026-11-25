@@ -1,3 +1,0 @@
-$ gcc -std=c11 -Wall -Wextra -O2 banker_bench.c -o banker_bench_check
-
-(exit=0)
