@@ -1,3 +1,0 @@
-Run: strace -o trace.txt ./system_calls
-Run summary: strace -c ./system_calls
-strace availability in report-generation environment: not installed; run on Linux to capture actual trace
