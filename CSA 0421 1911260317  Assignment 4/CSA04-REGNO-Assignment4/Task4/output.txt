@@ -1,0 +1,43 @@
+FCFS   53 98 183 37 122 14 124 65 67 -> 640 cylinders
+SSTF   53 65 67 37 14 98 122 124 183 -> 236 cylinders
+SCAN   53 37 14 0 65 67 98 122 124 183 -> 236 cylinders
+C-SCAN 53 ... 199, jump to 0 ... 37 -> 183 cylinders (+199 for the jump)
+
+=== Task 4.2: 10,000 random requests, head starts at 100 ===
+
+light load (mean inter-arrival 40 ms)
+algo      avg move/req  avg wait (ms)  max wait (ms)
+FCFS              66.6            2.3           57.7
+SSTF              65.5            2.0           57.8
+SCAN             117.0            7.5           58.5
+C-SCAN           159.1           19.1           65.9
+LOOK              65.6            2.1           56.1
+C-LOOK            66.3            5.5           58.7
+
+medium load (mean inter-arrival 12 ms)
+algo      avg move/req  avg wait (ms)  max wait (ms)
+FCFS              67.5           57.6          279.6
+SSTF              52.1           11.4          141.5
+SCAN              65.3           19.4           94.8
+        [uniformity, avg wait by cylinder band 0-49/50-99/100-149/150-199: 22.1 16.5 16.8 22.1 ms]
+C-SCAN            70.9           31.1          111.0
+        [uniformity, avg wait by cylinder band 0-49/50-99/100-149/150-199: 31.3 31.2 30.5 31.2 ms]
+LOOK              52.2           11.9           94.5
+C-LOOK            55.4           18.4           96.1
+
+heavy load (mean inter-arrival 7 ms)
+algo      avg move/req  avg wait (ms)  max wait (ms)
+FCFS              66.9        18360.2        35608.3
+SSTF              29.7           27.7          233.7
+SCAN              30.7           33.1          180.8
+C-SCAN            31.3           47.8          215.5
+LOOK              29.7           28.0          180.6
+C-LOOK            30.7           40.8          176.2
+
+=== Task 4.3: starvation test (head 53, request at 183, then one near cylinder 60 every 1 ms for 5000 ms) ===
+FCFS    request at 183 waited 4.2 ms
+SSTF    request at 183 waited 20001.2 ms
+SCAN    request at 183 waited 9015.0 ms
+C-SCAN  request at 183 waited 472.4 ms
+LOOK    request at 183 waited 472.4 ms
+C-LOOK  request at 183 waited 472.4 ms

@@ -1,0 +1,17 @@
+=== Task 6 stage 5: simulation (200000 chunk requests, 20000 videos, Zipf s=1) ===
+HDD chunk time 33.0 ms, SSD chunk time 2.77 ms
+design                 hit ratio    mean HDD ms streams per HDD(80%)
+A: HDD only                 0.0%           33.0                  155
+B: HDD + SSD cache 200     43.1%           18.8                  273
+B: HDD + SSD cache 500     53.4%           15.4                  333
+B: HDD + SSD cache 1000     61.3%           12.8                  401
+B: HDD + SSD cache 2000     69.4%           10.1                  507
+B: HDD + SSD cache 4000     77.7%            7.3                  697
+
+=== Task 6 stage 4: design calculations (peak week 1) ===
+Peak: 10000 streams x 5 Mb/s = 6250 MB/s = 50 Gb/s
+Library: 20,000 videos x 1 GB = 20 TB; 2 copies = 40 TB; 5x growth = 200 TB -> 4 x 16 TB HDDs now
+HDD with 4 MB chunks: 121 MB/s effective; no cache needs 65 HDDs
+With 80% cache hits: HDDs needed = 13; SSD traffic 5000 MB/s -> 1.7 NVMe drives (3 GB/s each)
+With 90% cache hits: HDDs needed = 7; SSD traffic 5625 MB/s -> 1.9 NVMe drives (3 GB/s each)
+Reads to start playing at minute m of a 1 GB video: extents = 1 extent-tree lookup (in inode) + 1 data read = 2; FAT/linked: up to 131072 look-ups/reads (mid-video: 1 GB/4 KB/2)

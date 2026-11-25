@@ -1,0 +1,63 @@
+=== df -iT / ===
+Filesystem     Type   Inodes  IUsed    IFree IUse% Mounted on
+/dev/vda       ext4 16777216 165096 16612120    1% /
+
+=== df -hT / ===
+Filesystem     Type  Size  Used Avail Use% Mounted on
+/dev/vda       ext4  252G  6.6G   10G  40% /
+
+=== ls -li (inode numbers) ===
+total 20480
+679953 -rw-r--r-- 2 root root 10485760 Nov 25 07:43 data.bin
+679953 -rw-r--r-- 2 root root 10485760 Nov 25 07:43 data.bin.hard
+679954 lrwxrwxrwx 1 root root       28 Nov 25 07:43 data.bin.sym -> /tmp/tmp.fdc2n2UePn/data.bin
+
+=== stat (file, hard link, symlink) ===
+  File: /tmp/tmp.fdc2n2UePn/data.bin
+  Size: 10485760  	Blocks: 20480      IO Block: 4096   regular file
+Device: 254,0	Inode: 679953      Links: 2
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Device: 254,0	Inode: 679953      Links: 2
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+  File: /tmp/tmp.fdc2n2UePn/data.bin.sym -> /tmp/tmp.fdc2n2UePn/data.bin
+  Size: 28        	Blocks: 0          IO Block: 4096   symbolic link
+
+=== stat -f / (block size, free blocks) ===
+  File: "/"
+    ID: 6a5d532d6c902ef7 Namelen: 255     Type: ext2/ext3
+Block size: 4096       Fundamental block size: 4096
+Blocks: Total: 66053021   Free: 64337390   Available: 2614669
+
+=== tune2fs -l on a 64 MB ext4 image ===
+Filesystem features:      has_journal ext_attr resize_inode dir_index filetype extent 64bit flex_bg sparse_super large_file huge_file dir_nlink extra_isize metadata_csum
+Inode count:              16384
+Block count:              16384
+Free blocks:              14319
+Free inodes:              16373
+Block size:               4096
+Inodes per group:         16384
+Inode size:	          256
+Journal inode:            8
+
+=== dumpe2fs -h (journal) ===
+Reserved block count:     819
+Journal features:         (none)
+Total journal size:       4096k
+Total journal blocks:     1024
+
+=== mount options of / (journal mode) ===
+/dev/vda / ext4 rw,relatime,discard,no_prefetch_block_bitmaps,resv_strict,resuid=65534,resgid=65534 0 0
+
+=== Task 4.4: I/O scheduler of each disk ===
+/sys/block/loop0/queue/scheduler: [none] mq-deadline kyber bfq   rotational=0
+/sys/block/loop1/queue/scheduler: [none] mq-deadline kyber bfq   rotational=0
+/sys/block/loop2/queue/scheduler: [none] mq-deadline kyber bfq   rotational=0
+/sys/block/loop3/queue/scheduler: [none] mq-deadline kyber bfq   rotational=0
+/sys/block/loop4/queue/scheduler: [none] mq-deadline kyber bfq   rotational=0
+/sys/block/loop5/queue/scheduler: [none] mq-deadline kyber bfq   rotational=0
+/sys/block/loop6/queue/scheduler: [none] mq-deadline kyber bfq   rotational=0
+/sys/block/loop7/queue/scheduler: [none] mq-deadline kyber bfq   rotational=0
+/sys/block/vda/queue/scheduler: none [mq-deadline] kyber bfq   rotational=1
+/sys/block/vdb/queue/scheduler: none [mq-deadline] kyber bfq   rotational=1
+/sys/block/vdc/queue/scheduler: none [mq-deadline] kyber bfq   rotational=1
+/sys/block/vdd/queue/scheduler: none [mq-deadline] kyber bfq   rotational=1

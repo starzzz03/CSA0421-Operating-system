@@ -1,0 +1,16 @@
+AAAAAA........CCCCC.............
+E (10 blocks) contiguous: start 19
+E (10 blocks) indexed: index block 6, data blocks 7 8 9 10 11 12 13 29 30 31
+AAAAAAeEEEEEEECCCCCEEEEEEEEEEEEE
+extra: F (15 blocks) contiguous: start -1 (free blocks = 21, largest hole = 13)
+extra: F (15 blocks) indexed: index block 6
+AAAAAAfFFFFFFFCCCCCFFFFFFFF.....
+4 GB file, 4 KB blocks: 1048576 blocks (last block number 1048575)
+Contiguous: 1 read (start+offset)
+Linked: 1048576 reads (follow 1048575 pointers)
+FAT in RAM: 1048575 table look-ups + 1 disk read
+Indexed: direct 12, single covers 1024, double covers 1048576; block 1048575 lies in the double region -> 3 reads (double idx, single idx, data)
+Max file size = (12 + 1024 + 1048576 + 1073741824) x 4096 = 4402345721856 bytes = 4.004 TiB
+4 TB disk: 1073741824 blocks; bit vector = 1073741824 bits = 128 MB
+FAT for the same disk: 1073741824 entries x 4 B = 4 GB
+Linked free list: 1 pointer (4 B) kept inside every free block, 0 extra table
