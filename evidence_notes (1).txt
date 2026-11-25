@@ -1,1 +1,0 @@
-Reference run: parent and child PIDs are printed; `ps` shows process states. PID values vary each execution. Capture `/proc/<child-pid>/status` while the child sleeps.
