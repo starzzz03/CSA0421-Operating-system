@@ -1,3 +1,0 @@
-$ gcc -std=c11 -Wall -Wextra -O2 banker.c -o banker
-
-(exit=0)
